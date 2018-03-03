@@ -1,23 +1,25 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, View } from "react-native";
+import SideMenu from "react-native-side-menu";
+import Menu from "./app/components/Menu";
+import TodoList from "./app/components/TodoList";
+import { appStyles } from "./app/styles";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
+export default class AwesomeProject extends Component {
+    render() {
+
+        return (
+            <SideMenu menu={<Menu />}>
+                <View style={[styles.container, appStyles.stdBackground]}>
+                    <TodoList listId="1" />
+                </View>
+            </SideMenu>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1
+    }
 });
